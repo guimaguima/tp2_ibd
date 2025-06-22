@@ -16,15 +16,14 @@ Para executar os scripts, você precisa ter os CSVs específicos e rodar via lin
 
 ### Scripts e seus requisitos:  
 
-#### `filtrar_mort_ubs_munic_ufs.py`  
+#### `filtrar_mort_munic_ufs.py`  
 **Função:**  
 Filtrar dados usando regras de colunas obrigatórias definidas pelo grupo.  
 
 **CSVs necessários:**  
 1. `Mortalidade_XXXX.csv` (dados abertos do Ministério da Saúde)  
-2. `Unidades_Basicas_Saude-UBS.csv` (dados abertos do Ministério da Saúde)  
-3. `ufs.csv` (dados abertos do IBGE customizado)  
-4. `municipios.csv` (dados abertos do IBGE customizado)  
+2. `ufs.csv` (dados abertos do IBGE customizado)  
+3. `municipios.csv` (dados abertos do IBGE customizado)  
 
 ---
 

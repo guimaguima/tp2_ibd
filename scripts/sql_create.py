@@ -33,7 +33,6 @@ with open('dicionario.csv', 'r', encoding='utf-8') as f:
 table_order = [
     'unidade_federativa',
     'municipios',
-    'ubs',
     'escolaridade',
     'raca',
     'tipo_notificacao',

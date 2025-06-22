@@ -18,14 +18,6 @@ def filtro_mortalidade(df):
     mask = df[obrigatorias].notna().all(axis=1)
     return mask
 
-def filtro_ubs(df):
-    obrigatorias = [
-        "cnes","uf","ibge","nome","logradouro","bairro"
-    ]
-    obrigatorias = [c.lower() for c in obrigatorias]
-    mask = df[obrigatorias].notna().all(axis=1)
-    return mask
-
 def filtro_municipios(df):
     obrigatorias = [
         "codigo_ibge","codigo_uf","nome" 
@@ -47,10 +39,7 @@ for nome_arquivo in ARQUIVOS:
     caminho = os.path.join(PASTA, nome_arquivo)
 
     
-    if nome_arquivo.startswith("Unidades"):
-        tipo = "ubs"
-        filtro = filtro_ubs
-    elif nome_arquivo.startswith("Mortalidade"):
+    if nome_arquivo.startswith("Mortalidade"):
         tipo = "mortalidade"
         filtro = filtro_mortalidade
     elif nome_arquivo.startswith("municipios"):
