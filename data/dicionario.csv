@@ -1,0 +1,140 @@
+Relações,Atributo,Tipo,Nulo,Unico,Valores Permitidos,Restrições
+Unidade Federativa,cod_uf,NUMBER(2),N,S,,PK
+Unidade Federativa,sigla,CHAR(2),N,S,,
+Unidade Federativa,nome,VARCHAR(22),N,S,,
+Unidade Federativa,lat_uf,FLOAT,N,N,,
+Unidade Federativa,long_uf,FLOAT,N,N,,
+Unidade Federativa,regiao,VARCHAR(12),N,N,,
+Unidade Federativa,populacao,INTEGER,N,N,,
+Municípios,cod_mun,NUMBER(7),N,S,,PK
+Municípios,nome_mun,VARCHAR(60),N,N,,
+Municípios,fuso,VARCHAR(30),N,N,,
+Municípios,lat_mun,FLOAT,N,N,,
+Municípios,long_mun,FLOAT,N,N,,
+Municípios,ddd,NUMBER(2),N,N,,
+Municípios,cod_uf,NUMBER(2),N,N,,FK(cod_uf) REFERENCES UNIDADE_FEDERATIVA(cod_uf) ON DELETE RESTRICT
+Escolaridade,id,INTEGER,N,S,,PK
+Escolaridade,desc,VARCHAR(50),N,S,,
+Raça,id,INTEGER,N,S,,PK
+Raça,desc,VARCHAR(12),N,S,,
+Tipo Notificação,id,INTEGER,N,S,,PK
+Tipo Notificação,tipo,VARCHAR(10)        ,N,S,,
+Tipo Infectado,id,INTEGER,N,S,,PK
+Tipo Infectado,desc,VARCHAR(6)        ,N,S,,
+Notificação de Infectados,id,INTEGER,N,S,,PK
+Notificação de Infectados,dt_notific,DATE,S,N,,
+Notificação de Infectados,ano_nasc,NUMBER(4),N,N,,
+Notificação de Infectados,dt_invest,DATE,S,N,,
+Notificação de Infectados,cs_sexo,CHAR(1),N,N,"M,F,I",
+Notificação de Infectados,vomito,BOOLEAN,S,N,,
+Notificação de Infectados,cs_gestant,NUMBER(1),N,N,"1,2,3,4,5,6,9","CHECK(     (
+        sexo = 'F' AND
+        (YEAR(GETDATE()) - ano_nasc) <= 10
+        AND cs_gestant IN ('1', '6')
+    )
+    OR
+    (
+        sexo = 'M' AND cs_gestant = '6'
+    )
+    OR
+    (
+        sexo = 'I'
+    )
+    OR
+  (
+        sexo = 'F' AND
+        (YEAR(GETDATE()) - ano_nasc) > 10
+        AND cs_gestant IN ('1', '2', '3', '4', '5', '6', '9')
+    ))"
+Notificação de Infectados,sangram,BOOLEAN,S,N,,
+Notificação de Infectados,dt_sin_pri,DATE,S,N,,
+Notificação de Infectados,classi_fin,NUMBER(3),N,N,"0,9,1,2,8",
+Notificação de Infectados,criterio,NUMBER(1),S,N,"‘ ‘,0,9,1,2,3",
+Notificação de Infectados,tpautocto,NUMBER(1),S,N,"1,2,3",
+Notificação de Infectados,resul_vi_n,NUMBER(1),S,N,"1,2,3,4",
+Notificação de Infectados,doenca_tra,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,evolucao,NUMBER(1),S,N,"1,2,3,´ ´,0,9",
+Notificação de Infectados,dt_obito,DATE,S,N,,
+Notificação de Infectados,dt_encerra,DATE,S,N,,
+Notificação de Infectados,dt_digita,DATE,S,N,,
+Notificação de Infectados,nduplic_n,NUMBER(1),S,N,"0,1,2",
+Notificação de Infectados,sorotipo,NUMBER(1),S,N,"1,2,3,4",
+Notificação de Infectados,resul_soro,NUMBER(1),S,,"1,2,3,4",
+Notificação de Infectados,febre,BOOLEAN,S,N,,
+Notificação de Infectados,acido_pept,BOOLEAN,S,N,,
+Notificação de Infectados,alrm_abdom,BOOLEAN,S,N,,
+Notificação de Infectados,alrm_hemat,BOOLEAN,S,N,,
+Notificação de Infectados,alrm_hipot,BOOLEAN,S,N,,
+Notificação de Infectados,alrm_letar,BOOLEAN,S,N,,
+Notificação de Infectados,alrm_liq,BOOLEAN,S,N,,
+Notificação de Infectados,alrm_plaq,BOOLEAN,S,N,,
+Notificação de Infectados,alrm_sang,BOOLEAN,S,N,,
+Notificação de Infectados,alrm_vom,BOOLEAN,S,N,,
+Notificação de Infectados,artralgia,BOOLEAN,S,N,,
+Notificação de Infectados,artrite,BOOLEAN,S,N,,
+Notificação de Infectados,auto_imune,BOOLEAN,S,N,,
+Notificação de Infectados,cefaleia,BOOLEAN,S,N,,
+Notificação de Infectados,clinic_chik,NUMBER(1),S,N,,
+Notificação de Infectados,complica,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,con_fhd,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,conjuntvit,BOOLEAN,S,N,,
+Notificação de Infectados,diabetes,BOOLEAN,S,N,,
+Notificação de Infectados,dor_costas,BOOLEAN,S,N,,
+Notificação de Infectados,dor_retro,BOOLEAN,S,N,,
+Notificação de Infectados,dt_alrm,DATE,S,N,,
+Notificação de Infectados,dt_chik_s1,DATE,S,N,,
+Notificação de Infectados,dt_chik_s2,DATE,S,N,,
+Notificação de Infectados,dt_grav,DATE,S,N,,
+Notificação de Infectados,dt_ns1,DATE,S,N,,
+Notificação de Infectados,dt_pcr,DATE,S,N,,
+Notificação de Infectados,dt_prnt,DATE,S,N,,
+Notificação de Infectados,dt_soro,DATE,S,N,,
+Notificação de Infectados,dt_viral,DATE,S,N,,
+Notificação de Infectados,epistaxe,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,evidencia,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,exantema,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,gengivo,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,grav_ast,BOOLEAN,S,N,,
+Notificação de Infectados,grav_consc,BOOLEAN,S,N,,
+Notificação de Infectados,grav_conv,BOOLEAN,S,N,,
+Notificação de Infectados,grav_ench,BOOLEAN,S,N,,
+Notificação de Infectados,grav_extre,BOOLEAN,S,N,,
+Notificação de Infectados,grav_hemat,BOOLEAN,S,N,,
+Notificação de Infectados,grav_hipot,BOOLEAN,S,N,,
+Notificação de Infectados,grav_insuf,BOOLEAN,S,N,,
+Notificação de Infectados,grav_melen,BOOLEAN,S,N,,
+Notificação de Infectados,grav_metro,BOOLEAN,S,N,,
+Notificação de Infectados,grav_mioc,BOOLEAN,S,N,,
+Notificação de Infectados,grav_orgao,BOOLEAN,S,N,,
+Notificação de Infectados,grav_pulso,BOOLEAN,S,N,,
+Notificação de Infectados,grav_sang,BOOLEAN,S,N,,
+Notificação de Infectados,grav_taqui,BOOLEAN,S,N,,
+Notificação de Infectados,hematolog,BOOLEAN,S,N,,
+Notificação de Infectados,hematura,BOOLEAN,S,N,,
+Notificação de Infectados,hepatopat,BOOLEAN,S,N,,
+Notificação de Infectados,hipertensa,BOOLEAN,S,N,,
+Notificação de Infectados,histopa_n,NUMBER(1),S,N,"1,2,3,4",
+Notificação de Infectados,imunoh_n,NUMBER(1),S,N,"1,2,3,4",
+Notificação de Infectados,laco,BOOLEAN,S,N,,
+Notificação de Infectados,laco_n,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,leucopenia,BOOLEAN,S,N,,
+Notificação de Infectados,mani_hemor,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,metro,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,mialgia,BOOLEAN,S,N,,
+Notificação de Infectados,resul_prnt,NUMBER(1),S,N,"1,2,3,4",
+Notificação de Infectados,nausea,BOOLEAN,S,N,,
+Notificação de Infectados,petequia_n,BOOLEAN,S,N,,
+Notificação de Infectados,petequias,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,plaq_menor,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,plasmatico,NUMBER(1),S,N,"1,2,9",
+Notificação de Infectados,renal,NUMBER(1),S,N,,
+Notificação de Infectados,res_chiks1,NUMBER(1),S,N,"1,2,3,4",
+Notificação de Infectados,res_chiks2,NUMBER(1),S,N,"1,2,3,4",
+Notificação de Infectados,resul_ns1,NUMBER(1),S,N,"1,2,3,4",
+Notificação de Infectados,resul_pcr_,NUMBER(1),S,N,"1,2,3,4",
+Notificação de Infectados,cod_mun_infec,NUMBER(7),N,N,,FK(cod_mun_infec) REFERENCES MUNICIPIOS(cod_mun) ON DELETE RESTRICT
+Notificação de Infectados,cod_mun_res,NUMBER(7),N,N,,FK(cod_mun_res) REFERENCES MUNICIPIOS(cod_mun) ON DELETE RESTRICT
+Notificação de Infectados,tipo_not,INTEGER,N,N,,FK(tipo_not) REFERENCES TIPO_INFECTADO(id) ON DELETE RESTRICT
+Notificação de Infectados,tipo_infec,INTEGER,N,N,,FK(tipo_infec) REFERENCES TIPO_NOTIFICACAO(id) ON DELETE RESTRICT
+Notificação de Infectados,raca,INTEGER,N,N,,FK(raca) REFERENCES RACA(id) ON DELETE RESTRICT
+Notificação de Infectados,escolaridade,INTEGER,N,N,,FK(escolaridade) REFERENCES ESCOLARIDADE(id) ON DELETE RESTRICT

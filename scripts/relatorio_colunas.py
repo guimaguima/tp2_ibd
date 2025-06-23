@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from collections import Counter, defaultdict
 
-PASTA = "dados"
+PASTA = "../data/"
 ARQUIVOS = [f for f in os.listdir(PASTA) if f.endswith(".csv")]
 
 CHUNK_SIZE = 10000

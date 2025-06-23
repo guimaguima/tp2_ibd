@@ -11,6 +11,10 @@ Este é o repositório do trabalho prático 2 da matéria **Introdução a Banco
 
 ---
 
+## Dados
+Todos os dados utilizados seguem o que foi descrito pelo pdf do nosso relatório. Pedimos que antes de rodar qualquer código leia-se atentamento o que foi feito. 
+Posteriormente, garanta que você tenha todos os arquivos necessários para cada etapa do processo, aqueles que não estão aqui listados podem ser adquirido pelo seguinte link (além das fontes originais - as quais sugerimos que use caso almeje reproduzir nossos resultados): https://drive.google.com/drive/folders/1daqI1kAXDIXUIQwwZUI3Ujqw1q4vJgCt?usp=drive_link;
+
 ## Execução dos scripts
 Para executar os scripts, você precisa ter os CSVs específicos e rodar via linha de comando.  
 
@@ -20,10 +24,9 @@ Para executar os scripts, você precisa ter os CSVs específicos e rodar via lin
 **Função:**  
 Filtrar dados usando regras de colunas obrigatórias definidas pelo grupo.  
 
-**CSVs necessários:**  
-1. `Mortalidade_XXXX.csv` (dados abertos do Ministério da Saúde)  
-2. `ufs.csv` (dados abertos do IBGE customizado)  
-3. `municipios.csv` (dados abertos do IBGE customizado)  
+**CSVs necessários:** 
+2. `ufs.csv` (dados abertos do IBGE customizado - Créditos e fonte: https://github.com/kelvins/municipios-brasileiros + Dados adicionados por nós! (Somente no Drive))  
+3. `municipios.csv` (dados abertos do IBGE customizado - Créditos e fonte: https://github.com/kelvins/municipios-brasileiros)
 
 ---
 
@@ -61,4 +64,25 @@ Todos os mencionados nos scripts anteriores.
 Gera script SQL para criação do banco de dados e tabelas.  
 
 **CSV necessário:**  
-`dicionario.csv` (dicionário da modelagem do banco de dados)  
+`dicionario.csv` (dicionário da modelagem do banco de dados) 
+
+---
+
+## Criação do Banco de Dados (bd.py)
+Para criar o banco de dados, você precisa dos CSV's na pasta data/:
+
+1. dados_unificados.csv
+2. municipios.csv
+3. ufs.csv
+4. dicionario.csv
+
+Além do arquivo `bd.py` dentro da pastra scripts/
+
+Em seguida execute o script `bd.py`
+
+Um arquivo `schema.sql` vai ser criado com base nas configurações do `dicionario.csv`
+Após isso a configuração e população do banco deve começar.
+
+Certifique-se de criar um usuário `db_user` no PostgreSQL que tenha atribuições  de criação de bancos, assim não haverão conflitos durante essa etapa.
+
+A execução do script é demorada e alguns erros são esperados, mas não interrompa a execução, são apenas erros de contenção das tabelas para eliminação de linhas inválidas. Espera-se tempo de execução médio de 1 hora para a inserção de todas as 4.6 milhões de linhas na base de dados.

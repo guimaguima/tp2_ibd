@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 #mudar localizacao aqui!
-PASTA = "/home/perchuts/tp2-ibd"
+PASTA = "../data/"
 ARQUIVOS = [f for f in os.listdir(PASTA) if f.endswith(".csv")]
 
 COLUNAS_PERMITIDAS = [
