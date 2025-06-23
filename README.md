@@ -59,15 +59,6 @@ Todos os mencionados nos scripts anteriores.
 
 ---
 
-#### `sql_create.py`  
-**Função:**  
-Gera script SQL para criação do banco de dados e tabelas.  
-
-**CSV necessário:**  
-`dicionario.csv` (dicionário da modelagem do banco de dados) 
-
----
-
 ## Criação do Banco de Dados (bd.py)
 Para criar o banco de dados, você precisa dos CSV's na pasta data/:
 
