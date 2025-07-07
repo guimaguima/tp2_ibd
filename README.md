@@ -1,13 +1,14 @@
-# TP2_IBD
+# Dados Dengue e Zika
 
-Este é o repositório do trabalho prático 2 da matéria **Introdução a Banco de Dados** - **UFMG - 2025/01** - Professor **Clodoveu Davis**.
+Este repositório foi originalmente feito para o trabalho prático 2 da matéria **Introdução a Banco de Dados** - **UFMG - 2025/01** - Professor **Clodoveu Davis**.
+A ideia central é analisar, organizar e montar os dados de notificações de dengue e zika de 2023 até 2025, tudo isto utilizando de um banco de dados em PostgresSQL.
 
 **Grupo:**  
-- Eduardo Birchal - 2024023970  
-- Enzo de Souza Braz - 2024099062  
-- Gabriel Guimarães dos Santos Ricardo - 2024024062  
-- Gabriel Lucas Martins - 2023034900  
-- João Pedro Moreira Smolinski - 2024023996  
+- Eduardo Birchal 
+- Enzo de Souza Braz 
+- Gabriel Guimarães dos Santos Ricardo
+- Gabriel Lucas Martins  
+- João Pedro Moreira Smolinski 
 
 ---
 
